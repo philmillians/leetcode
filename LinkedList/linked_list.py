@@ -23,25 +23,6 @@ class LinkedList:
     self.head = NewNode
 
   def remove(self, value):
-    headVal = self.head    
-    if (self.head == None):
-      print("Nothing in LinkedList")
-      return 
-    if (self.head):
-        if (self.head.value == value):
-          self.head = self.head.next
-          self.head = None
-          return
-    while (self.head is not None):
-        if self.head.value == value:
-          break
-        previous = self.head
-        self.head = self.head.next
-    
-    previous.next = self.head.next
-    self.head = None
-
-  def remove(self, value):
     previousNode = None
     currentNode = self.head
     while currentNode:
