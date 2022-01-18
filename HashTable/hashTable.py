@@ -30,8 +30,6 @@ class HashTable:
     previous = None
     index = self.hash(key)
     node=self.buckets[index]
-    #previous = None
-    
     while node and node.key != key:
       previous = node
       node = node.next
