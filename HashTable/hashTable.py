@@ -42,6 +42,7 @@ class HashTable:
         node=None
       else:
         previous.next = previous.next.next
+        return
   def hash(self,key):
     hashsum = 0
     for index, c in enumerate(key):
