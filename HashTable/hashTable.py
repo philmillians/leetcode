@@ -42,7 +42,7 @@ class HashTable:
         node=None
       else:
         previous.next = previous.next.next
-        return
+      return
   def hash(self,key):
     hashsum = 0
     for index, c in enumerate(key):
@@ -59,5 +59,7 @@ class HashTable:
       print('key not in hashtable')
       return None
     return node.value
-  def access(self,value):
-    pass
+  def access(self,index):
+    return self.buckets[index]
+  def myLen(self):
+    return self.size
