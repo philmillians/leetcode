@@ -1,50 +1,86 @@
 class Node:
-  def __init__(self,value):
-    self.data=value
+  def __init__(self, value):
     self.left=None
-    self.right =None
-
-  def insert(self,newValue):
-    NewNode = Node(newValue)
-    if self.data == newValue:
+    self.right=None
+    self.value = value
+  def insert(self, value):
+    NewNode = Node(value)
+    if self.value == None:
       return False
-    elif self.data > newValue
+    elif self.value > value:
       if self.left:
-        return self.left.insert(newValue)
+        return self.left.insert(value)
       else:
         self.left = NewNode
         return True
     else:
       if self.right:
-        return self.right.insert(newValue)
+        return self.right.insert(value)
       else:
         self.right = NewNode
         return True
   def find(self,value):
-    if self.data == value:
+    if self.value == value:
       return True
-    elif value < self.data and self.left:
+    elif self.value > value and self.left:
       return self.left.find(value)
-    elif value > self.data and self.right:
+    elif self.value < value and self.right:
       return self.right.find(value)
-	return False
-  def inOrder(self):
-    pass
-  def postOrder(self):
-    pass
-  def preOrder(self):
-    pass
+    return False
 
+  def preorder(self,list):
+    list.append(self.data)
+    if self.left:
+      return self.left.preorder(list)
+    if self.right:
+      return self.right.preorder(list)
+    return list
+
+  def postorder(self,list):
+    if self.left:
+      return self.left.postorder(list)
+    if self.right:
+      return self.right.postorder(list)
+    list.append(self.data)
+    return list
+  def inorder(self):
+    if self.left:
+      return self.left.postorder(list)
+    list.append(self.data)
+    if self.right:
+      return self.right.postorder(list)
+    return list
 
 class BST:
   def __init__(self,value):
     self.root = None
-
   def insert(self,newValue):
-    pass
+    if self.root:
+      return self.root.insert(value)
+    else:
+      self.root = Node(value)
+      return True
   def find(self,value):
-    pass
+    if self.root:
+      return self.root.find(value)
+    else:
+      return False
   def remove(self,value):
-    pass
-  
+    pass  
+  def preorder(self):
+    if self.root:
+      return self.root.preorder([])
+    else:
+      return []
+  def postorder(self):
+    if self.root:
+      return self.root.postorder([])
+    else:
+      return []
+  def inorder(self):
+    if self.root:
+      return self.root.inorder([])
+    else:
+      return []
+
 
