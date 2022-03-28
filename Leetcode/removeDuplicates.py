@@ -1,8 +1,8 @@
-def removeDuplicates(self, nums) :
-      i=0
-      for item in range(1,len(nums)):
-        if nums[item] != nums[i]:
-          i+=1
-          nums[i]=nums[item]
-      print(nums)
-      return i + 1
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        leftPtr=1
+        for rightPtr in range(1,len(nums)):
+            if nums[rightPtr] != nums[rightPtr-1]:
+                nums[leftPtr] = nums[rightPtr]
+                leftPtr += 1
+        return leftPtr
