@@ -45,20 +45,21 @@ class Node:
     return list
   def inorder(self):
     if self.left:
-      return self.left.postorder(list)
+      return self.left.inorder(list)
     list.append(self.data)
     if self.right:
-      return self.right.postorder(list)
+      return self.right.inorder(list)
     return list
 
 class BST:
   def __init__(self,value):
     self.root = None
   def insert(self,newValue):
+    NewNode = Node(newValue)
     if self.root:
-      return self.root.insert(value)
+      return self.root.insert(newValue)
     else:
-      self.root = Node(value)
+      self.root = NewNode
       return True
   def find(self,value):
     if self.root:
